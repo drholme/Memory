@@ -14,16 +14,13 @@
         // DOM traversal
         const game = document.getElementById("game");
 
-        //for each of the pictures
-        //generate some HTML that shows them
-        //display that on the page
         const pictures = ['Kelauni-Cook.jpg', 'Marc-Salo.jpg'];
+        const doublePictures = [...pictures, ...pictures];
         let displayString = '';
         let i = 0;
         let imageString = '';
-        for(i; i < pictures.length; i++) {
-          imageString = '<img src="images/' + pictures[i] + '" />';
-          console.log(imageString);
+        for(i; i < doublePictures.length; i++) {
+          imageString = '<img src="images/' + doublePictures[i] + '" />';
           displayString = displayString + imageString;
         }
         game.innerHTML = displayString;
