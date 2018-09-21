@@ -31,19 +31,23 @@
       let doublePictures = [
         {
           name: 'Kelauni-Cook.jpg',
-          clicked: false
+          clicked: false,
+          matched: false
         },
         {
           name: 'Marc-Salo.jpg',
-          clicked: false
+          clicked: false,
+          matched: false
         },
         {
           name: 'Kelauni-Cook.jpg',
-          clicked: false
+          clicked: false,
+          matched: false
         },
         {
           name: 'Marc-Salo.jpg',
-          clicked: false
+          clicked: false,
+          matched: false
         }
       ];
 
@@ -52,6 +56,15 @@
         // doublePictures[i]
         doublePictures[position].clicked = true;
         drawGame();
+        // if there are two clicked
+          // if they're matched
+            // call them matched in the array
+            // check for doneness - if done, set congratulatory message
+          // else
+            // re-flip them
+          //wait 1 sec and draw again
+        // else
+          // do nothing
       }
 
       const createDivForImage = (imageObject, position) => {
@@ -59,6 +72,8 @@
         const clicked = imageObject.clicked;
         if (clicked) {
           htmlString = '<img src="images/' + imageName + '" />';
+        } else if (imageObject.matched) {
+          //display blank div
         } else {
           htmlString = '<img onClick="flipCard(' + position + ')" src="images/background.jpg" />';
         }
