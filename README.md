@@ -4,6 +4,7 @@ pictures with buttons - getting things to line up
 memory
 - photos
   - random layout at beginning of game
+  - make the board lay out in a squareish shape
 - instructions to user
   - score?!?!
 - loop

@@ -5,10 +5,25 @@
     <style>
       img {
         height: 100px;
-        padding: 0.5rem;
+      }
+
+      #game div {
+        display: inline-block;
+        border: 1px solid rebeccapurple;
+        padding: 0.25rem;
+        margin: 0.25rem;
+      }
+
+      .person {
+        display: none;
       }
     </style>
     <script>
+      const createDivForImage = (imageName) => {
+        htmlString = '<div><img class="back" src="images/background.jpg" />';
+        htmlString += '<img class="person" src="images/' + imageName + '" /></div>';
+        return htmlString;
+      }
       window.onload = function() {
         console.log('hello');
         // DOM traversal
@@ -20,7 +35,7 @@
         let i = 0;
         let imageString = '';
         for(i; i < doublePictures.length; i++) {
-          imageString = '<img src="images/' + doublePictures[i] + '" />';
+          imageString = createDivForImage(doublePictures[i]);
           displayString = displayString + imageString;
         }
         game.innerHTML = displayString;
