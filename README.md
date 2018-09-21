@@ -12,3 +12,17 @@ memory
     - if so remove
     - otherwise unflip
   - check if all cards are gone
+
+================
+
+JavaScript = JS = EcmaScript
+language specification
+es5 = normal JS?
+  var
+  function foo() {}
+es6 = current modern JS
+  const, let
+  const foo = () => {}
+
+older browser support?!
+  polyfill

@@ -2,8 +2,26 @@
 <html lang="en">
   <head>
     <title>Sweet memory game</title>
+    <script>
+      window.onload = function() {
+        console.log('hello');
+        const game = document.getElementById("game");
+
+        //for each of the pictures
+        //generate some HTML that shows them
+        //display that on the page
+        const pictures = ['Kelauni-Cook.jpg', 'Marc-Salo.jpg'];
+        let displayString = '<strong>I am a horse</strong>';
+        let i = 0;
+        for(i; i < pictures.length; i++) {
+          displayString = displayString + pictures[i];
+        }
+        game.innerHTML = displayString;
+      };
+    </script>
   </head>
   <body>
     <div>Hello, world!</div>
+    <div id="game"></div>
   </body>
 </html>
