@@ -19,11 +19,17 @@
       }
     </style>
     <script>
+      const flipCard = (card) => {
+        console.log('I am flipping a card!!: ', card);
+        card.style.display = "none";
+      }
+
       const createDivForImage = (imageName) => {
-        htmlString = '<div><img class="back" src="images/background.jpg" />';
+        htmlString = '<div><img onClick="flipCard(this)" class="back" src="images/background.jpg" />';
         htmlString += '<img class="person" src="images/' + imageName + '" /></div>';
         return htmlString;
       }
+
       window.onload = function() {
         console.log('hello');
         // DOM traversal
