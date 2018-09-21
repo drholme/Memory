@@ -7,45 +7,79 @@
         height: 100px;
       }
 
-      #game div {
+      #game img {
         display: inline-block;
         border: 1px solid rebeccapurple;
         padding: 0.25rem;
         margin: 0.25rem;
       }
-
-      .person {
-        display: none;
-      }
     </style>
     <script>
-      const flipCard = (card) => {
-        console.log('I am flipping a card!!: ', card);
-        card.style.display = "none";
+      // my array of possible pictures stores:
+      //  * the name of the person
+      //  * whether it's been clicked
+
+      // when I display the array
+      // if it's been clicked, I show the person
+      // otherwise, I show the background
+
+      // when I click a card
+      // i change the array to say it's been clicked
+
+
+      //JSON
+      let doublePictures = [
+        {
+          name: 'Kelauni-Cook.jpg',
+          clicked: false
+        },
+        {
+          name: 'Marc-Salo.jpg',
+          clicked: false
+        },
+        {
+          name: 'Kelauni-Cook.jpg',
+          clicked: false
+        },
+        {
+          name: 'Marc-Salo.jpg',
+          clicked: false
+        }
+      ];
+
+      const flipCard = (position) => {
+        // find the right place in doublePictures and change clicked to true
+        // doublePictures[i]
+        doublePictures[position].clicked = true;
+        drawGame();
       }
 
-      const createDivForImage = (imageName) => {
-        htmlString = '<div><img onClick="flipCard(this)" class="back" src="images/background.jpg" />';
-        htmlString += '<img class="person" src="images/' + imageName + '" /></div>';
+      const createDivForImage = (imageObject, position) => {
+        const imageName = imageObject.name;
+        const clicked = imageObject.clicked;
+        if (clicked) {
+          htmlString = '<img src="images/' + imageName + '" />';
+        } else {
+          htmlString = '<img onClick="flipCard(' + position + ')" src="images/background.jpg" />';
+        }
         return htmlString;
       }
 
-      window.onload = function() {
-        console.log('hello');
+      const drawGame = () => {
         // DOM traversal
         const game = document.getElementById("game");
 
-        const pictures = ['Kelauni-Cook.jpg', 'Marc-Salo.jpg'];
-        const doublePictures = [...pictures, ...pictures];
         let displayString = '';
         let i = 0;
         let imageString = '';
         for(i; i < doublePictures.length; i++) {
-          imageString = createDivForImage(doublePictures[i]);
+          imageString = createDivForImage(doublePictures[i], i);
           displayString = displayString + imageString;
         }
         game.innerHTML = displayString;
-      };
+      }
+
+      window.onload = drawGame;
     </script>
   </head>
   <body>
